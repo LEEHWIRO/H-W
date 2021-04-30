@@ -1,0 +1,38 @@
+package kr.or.ddit.whisp.handler;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import kr.or.ddit.whisp.service.WhispServiceImpl;
+import kr.or.ddit.whisp.service.IWhispService;
+import kr.or.ddit.whisp.vo.WhispVO;
+import kr.or.ddit.comm.handler.CommandHandler;
+
+public class UserWhispHandler implements CommandHandler{
+
+	private static final String VIEW_PAGE = "/WEB-INF/view/whisp/userWhisp.jsp";
+
+	
+	
+	@Override
+	public boolean isRedirect(HttpServletRequest req) {
+		
+		
+		return false;
+	}
+
+	@Override
+	public String process(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+				
+		IWhispService whispService = WhispServiceImpl.getInstance();
+
+		List<WhispVO> whispList = whispService.getAllWhispList();
+
+		req.setAttribute("whispList", whispList);
+
+		return VIEW_PAGE;
+	}
+
+}

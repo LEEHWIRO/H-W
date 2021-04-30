@@ -1,0 +1,559 @@
+<%@page import="kr.or.ddit.exerfood.vo.FoodVO"%>
+<%@page import="kr.or.ddit.exerfood.vo.ExerVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+    	List<ExerVO> exerList = (List<ExerVO>)request.getAttribute("exerList");
+    	List<FoodVO> foodList = (List<FoodVO>)request.getAttribute("foodList");
+    %>
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PTYoutube</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/HW_video/css/exerfood.css"/>
+<script src='<%=request.getContextPath() %>/HW_video/js/jquery-3.6.0.js'></script>
+<script src='<%=request.getContextPath() %>/HW_video/js/jquery.js'></script>
+<script src='<%=request.getContextPath() %>/HW_video/js/exerfood.js'></script>
+<link rel='stylesheet' href='<%=request.getContextPath() %>/HW_video/css/woocommerce-layout.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='<%=request.getContextPath() %>/HW_video/css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href='<%=request.getContextPath() %>/HW_video/css/woocommerce.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='<%=request.getContextPath() %>/HW_video/css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='<%=request.getContextPath() %>/HW_video/css/style2.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href='<%=request.getContextPath() %>/HW_video/css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+<script type="text/javascript">
+jQuery(document).ready( function($) {
+	$(window).resize(function(){
+		change();
+	});
+	  function change(){
+		  var windowWidth = $(window).width();
+		  if(windowWidth < 980) {
+			  $('#byun').hide();
+			} else {
+				$('#byun').show();
+			}
+	  }
+} );
+</script>
+<style type="text/css">
+.aa {
+	font-size: x-large;
+	padding: 40px;
+}
+</style>
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+  
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%=request.getContextPath() %>/HW/main/login.do"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+  
+<div id="page">
+	<div class="container">
+		<header id="masthead" class="site-header">
+		<div class="site-branding">
+			<h1 class="site-title"><a href="index.html" rel="home"></a></h1>
+			<h2 class="site-description"></h2>
+		</div>
+		<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle"><img alt="안나와.." src="<%=request.getContextPath() %>/HW_video/IMG/logo.jpg"></button>
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+		<div class="menu-menu-1-container" onchange="dis()">
+				<ul id="menu-menu-1" class="menu">
+				<li>
+				<a href="<%=request.getContextPath() %>/HW/video/pt.do" class="aa">PT</a>
+				<ul class="sub-menu">
+					<li><a href="<%=request.getContextPath() %>/HW/video/bmi.do">BMI 계산기</a></li>
+					<li><a href="#">운동 게시판</a></li>
+					<li><a href="<%=request.getContextPath() %>/HW/video/video.do">운동 동영상</a></li>
+					<li><a href="<%=request.getContextPath() %>/HW/video/exerfood.do">운동/식단</a></li>
+				</ul>
+				</li>
+				<li>
+				<a href="<%=request.getContextPath() %>/HW/prod/list.do" class="aa">쇼핑몰</a>
+				<ul class="sub-menu">
+					<li><a href="#">운동 기구</a></li>
+					<li><a href="#">보조 식품</a></li>
+					<li><a href="#">배송 문의</a></li>
+					<li><a href="#">상품 문의</a></li>
+				</ul>
+				</li>
+				<li id="byun"><a href="#"><img alt="안나와.." src="<%=request.getContextPath() %>/HW_main/IMG/logo.jpg" width="150" height="150"></a></li>
+				<li>
+				<a href="<%=request.getContextPath() %>/HW/board/list.do" class="aa">게시판</a>
+				<ul class="sub-menu">
+					<li><a href="#l">공지 사항</a></li>
+					<li><a href="#">Q & A</a></li>
+				</ul>
+				</li>
+				<li>
+				<a href="#" class="aa">멤버쉽</a>
+				<ul class="sub-menu">
+					<li><a href="#">멤버쉽 소개</a></li>
+					<li><a href="#">멤버쉽 결제</a></li>
+				</ul>
+				</li>
+			</ul>
+		</div>
+		</nav>
+		</header>
+		<!-- #masthead -->
+		<div >
+			<a href="<%=request.getContextPath() %>/HW/video/exerfood.do" ><img alt="PTLogo" src="<%=request.getContextPath() %>/HW_video/IMG/exerfood.png"></a>
+		</div>
+		<div id="exerfoodSideMenu">
+			<ul style="margin-top: 80px;">
+				<li>
+			    	<a href="<%=request.getContextPath() %>/HW/video/bmi.do" >BMI 계산기</a>
+				</li>
+
+				<li>
+					<a href="#">운동 게시판</a>
+				</li>
+
+				<li>
+					<a href="<%=request.getContextPath() %>/HW/video/video.do">운동 동영상</a>
+				</li>
+
+				<li>
+					<a href="<%=request.getContextPath() %>/HW/video/exerfood.do">운동/식단</a>
+				</li>
+			</ul>
+		</div>
+		<div id="exerfoodContent">
+			<div id="exerContent">
+				<div id="exerKinds" style="float: left;">
+					<h1 style="margin-bottom: 20px;">운동방법</h1>
+					<div id="upper">
+						<fieldset>
+							<h2 style="float: left; margin-right: 15px;">상체</h2>
+							<div style="float: left; margin-top: 5px;">
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="어깨운동"%>">어깨운동</a><br><br>
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="팔운동"%>">팔운동</a><br><br>
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="가슴운동"%>">가슴운동</a><br><br>
+							</div>
+						</fieldset>
+					</div>
+					<div id="middle">
+						<fieldset>
+							<h2 style="float: left; margin-right: 15px;">하체</h2>
+							<div style="float: left; margin-top: 5px;">
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="허벅지운동"%>">허벅지운동</a><br><br>
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="다리운동"%>">다리운동</a><br><br>
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="발목운동"%>">발목운동</a><br><br>
+							</div>
+						</fieldset>
+					</div>
+					<div id="under">
+						<fieldset>
+							<h2 style="float: left; margin-right: 30px; margin-left: 15px;">몸</h2>
+							<div style="float: left; margin-top: 15px;">
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="복근운동"%>">복근운동</a><br><br>
+								<a href="<%=request.getContextPath() %>/HW/video/exerfood.do?exeName=<%="허리운동"%>">허리운동</a><br><br>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<fieldset id="exerDetail" style="float: left;">
+					<%
+						if(exerList.size() == 1){
+						for(int i = 0; i < exerList.size(); i++){
+					%>
+					<h2><%=exerList.get(i).getExeName() %></h2><br>
+					<span><%=exerList.get(i).getExeContent() %></span>
+					<%					
+						}
+						}
+					%>
+				</fieldset>
+			</div>
+			<div id="foodContent">
+				<div id="foodKinds">
+					<h1 style="float: left;">식단표</h1>
+					<ul style="float: left;">
+						<li><a><button type="button" id="food1">박신혜 식단표</button></a></li>
+						<li><a><button type="button" id="food2">김연아 식단표</button></a></li>
+						<li><a><button type="button" id="food3">태연 식단표</button></a></li>
+					</ul>
+				</div>
+				<fieldset id="foodDetail1" style="display: none;">
+					<h1>박신혜 식단표</h1>
+					<div>
+					<h2 >아침</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(1).getFoodName() %></td>
+							<td><%=foodList.get(1).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(1).getFoodFat() %>g</td>
+							<td><%=foodList.get(1).getFoodProtein() %>g</td>
+							<td><%=foodList.get(1).getFoodRice() %>g</td>
+							<td><%=foodList.get(1).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(2).getFoodName() %></td>
+							<td><%=foodList.get(2).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(2).getFoodFat() %>g</td>
+							<td><%=foodList.get(2).getFoodProtein() %>g</td>
+							<td><%=foodList.get(2).getFoodRice() %>g</td>
+							<td><%=foodList.get(2).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(3).getFoodName() %></td>
+							<td><%=foodList.get(3).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(3).getFoodFat() %>g</td>
+							<td><%=foodList.get(3).getFoodProtein() %>g</td>
+							<td><%=foodList.get(3).getFoodRice() %>g</td>
+							<td><%=foodList.get(3).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+					<div>
+					<h2>점심</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(2).getFoodName() %></td>
+							<td><%=foodList.get(2).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(2).getFoodFat() %>g</td>
+							<td><%=foodList.get(2).getFoodProtein() %>g</td>
+							<td><%=foodList.get(2).getFoodRice() %>g</td>
+							<td><%=foodList.get(2).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(6).getFoodName() %></td>
+							<td><%=foodList.get(6).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(6).getFoodFat() %>g</td>
+							<td><%=foodList.get(6).getFoodProtein() %>g</td>
+							<td><%=foodList.get(6).getFoodRice() %>g</td>
+							<td><%=foodList.get(6).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+					<div>
+					<h2>저녁</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(2).getFoodName() %></td>
+							<td><%=foodList.get(2).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(2).getFoodFat() %>g</td>
+							<td><%=foodList.get(2).getFoodProtein() %>g</td>
+							<td><%=foodList.get(2).getFoodRice() %>g</td>
+							<td><%=foodList.get(2).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(6).getFoodName() %></td>
+							<td><%=foodList.get(6).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(6).getFoodFat() %>g</td>
+							<td><%=foodList.get(6).getFoodProtein() %>g</td>
+							<td><%=foodList.get(6).getFoodRice() %>g</td>
+							<td><%=foodList.get(6).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(0).getFoodName() %></td>
+							<td><%=foodList.get(0).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(0).getFoodFat() %>g</td>
+							<td><%=foodList.get(0).getFoodProtein() %>g</td>
+							<td><%=foodList.get(0).getFoodRice() %>g</td>
+							<td><%=foodList.get(0).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+				</fieldset>
+				<fieldset id="foodDetail2" style="display: none;">
+					<h1>김연아 식단표</h1>
+					<div>
+					<h2>아침</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(12).getFoodName() %></td>
+							<td><%=foodList.get(12).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(12).getFoodFat() %>g</td>
+							<td><%=foodList.get(12).getFoodProtein() %>g</td>
+							<td><%=foodList.get(12).getFoodRice() %>g</td>
+							<td><%=foodList.get(12).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(7).getFoodName() %></td>
+							<td><%=foodList.get(7).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(7).getFoodFat() %>g</td>
+							<td><%=foodList.get(7).getFoodProtein() %>g</td>
+							<td><%=foodList.get(7).getFoodRice() %>g</td>
+							<td><%=foodList.get(7).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(8).getFoodName() %></td>
+							<td><%=foodList.get(8).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(8).getFoodFat() %>g</td>
+							<td><%=foodList.get(8).getFoodProtein() %>g</td>
+							<td><%=foodList.get(8).getFoodRice() %>g</td>
+							<td><%=foodList.get(8).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(10).getFoodName() %></td>
+							<td><%=foodList.get(10).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(10).getFoodFat() %>g</td>
+							<td><%=foodList.get(10).getFoodProtein() %>g</td>
+							<td><%=foodList.get(10).getFoodRice() %>g</td>
+							<td><%=foodList.get(10).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+					<div>
+					<h2>점심</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(5).getFoodName() %></td>
+							<td><%=foodList.get(5).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(5).getFoodFat() %>g</td>
+							<td><%=foodList.get(5).getFoodProtein() %>g</td>
+							<td><%=foodList.get(5).getFoodRice() %>g</td>
+							<td><%=foodList.get(5).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(10).getFoodName() %></td>
+							<td><%=foodList.get(10).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(10).getFoodFat() %>g</td>
+							<td><%=foodList.get(10).getFoodProtein() %>g</td>
+							<td><%=foodList.get(10).getFoodRice() %>g</td>
+							<td><%=foodList.get(10).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+					<div>
+					<h2>저녁</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(5).getFoodName() %></td>
+							<td><%=foodList.get(5).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(5).getFoodFat() %>g</td>
+							<td><%=foodList.get(5).getFoodProtein() %>g</td>
+							<td><%=foodList.get(5).getFoodRice() %>g</td>
+							<td><%=foodList.get(5).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(11).getFoodName() %></td>
+							<td><%=foodList.get(11).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(11).getFoodFat() %>g</td>
+							<td><%=foodList.get(11).getFoodProtein() %>g</td>
+							<td><%=foodList.get(11).getFoodRice() %>g</td>
+							<td><%=foodList.get(11).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+				</fieldset>
+				<fieldset id="foodDetail3" style="display: none;">
+					<h1>태연 식단표</h1>
+					<div>
+					<h2>아침</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(2).getFoodName() %></td>
+							<td><%=foodList.get(2).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(2).getFoodFat() %>g</td>
+							<td><%=foodList.get(2).getFoodProtein() %>g</td>
+							<td><%=foodList.get(2).getFoodRice() %>g</td>
+							<td><%=foodList.get(2).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(3).getFoodName() %></td>
+							<td><%=foodList.get(3).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(3).getFoodFat() %>g</td>
+							<td><%=foodList.get(3).getFoodProtein() %>g</td>
+							<td><%=foodList.get(3).getFoodRice() %>g</td>
+							<td><%=foodList.get(3).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(13).getFoodName() %></td>
+							<td><%=foodList.get(13).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(13).getFoodFat() %>g</td>
+							<td><%=foodList.get(13).getFoodProtein() %>g</td>
+							<td><%=foodList.get(13).getFoodRice() %>g</td>
+							<td><%=foodList.get(13).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(14).getFoodName() %></td>
+							<td><%=foodList.get(14).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(14).getFoodFat() %>g</td>
+							<td><%=foodList.get(14).getFoodProtein() %>g</td>
+							<td><%=foodList.get(14).getFoodRice() %>g</td>
+							<td><%=foodList.get(14).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+					<div>
+					<h2>점심</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(2).getFoodName() %></td>
+							<td><%=foodList.get(2).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(2).getFoodFat() %>g</td>
+							<td><%=foodList.get(2).getFoodProtein() %>g</td>
+							<td><%=foodList.get(2).getFoodRice() %>g</td>
+							<td><%=foodList.get(2).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(3).getFoodName() %></td>
+							<td><%=foodList.get(3).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(3).getFoodFat() %>g</td>
+							<td><%=foodList.get(3).getFoodProtein() %>g</td>
+							<td><%=foodList.get(3).getFoodRice() %>g</td>
+							<td><%=foodList.get(3).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(4).getFoodName() %></td>
+							<td><%=foodList.get(4).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(4).getFoodFat() %>g</td>
+							<td><%=foodList.get(4).getFoodProtein() %>g</td>
+							<td><%=foodList.get(4).getFoodRice() %>g</td>
+							<td><%=foodList.get(4).getFoodSweet() %>g</td>
+						</tr>
+					</table>
+					</div>
+					<div>
+					<h2>저녁</h2>
+					<table>
+						<tr>
+							<th style="width: 75px;">이름</th>
+							<th>칼로리</th>
+							<th>지방</th>
+							<th>단백질</th>
+							<th>탄수화물</th>
+							<th>당</th>
+						</tr>
+						<tr>
+							<td><%=foodList.get(6).getFoodName() %></td>
+							<td><%=foodList.get(6).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(6).getFoodFat() %>g</td>
+							<td><%=foodList.get(6).getFoodProtein() %>g</td>
+							<td><%=foodList.get(6).getFoodRice() %>g</td>
+							<td><%=foodList.get(6).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(16).getFoodName() %></td>
+							<td><%=foodList.get(16).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(16).getFoodFat() %>g</td>
+							<td><%=foodList.get(16).getFoodProtein() %>g</td>
+							<td><%=foodList.get(16).getFoodRice() %>g</td>
+							<td><%=foodList.get(16).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(0).getFoodName() %></td>
+							<td><%=foodList.get(0).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(0).getFoodFat() %>g</td>
+							<td><%=foodList.get(0).getFoodProtein() %>g</td>
+							<td><%=foodList.get(0).getFoodRice() %>g</td>
+							<td><%=foodList.get(0).getFoodSweet() %>g</td>
+						</tr>
+						<tr>
+							<td><%=foodList.get(10).getFoodName() %></td>
+							<td><%=foodList.get(10).getFoodKcal() %>kcal</td>
+							<td><%=foodList.get(10).getFoodFat() %>g</td>
+							<td><%=foodList.get(10).getFoodProtein() %>g</td>
+							<td><%=foodList.get(10).getFoodRice() %>g</td>
+							<td><%=foodList.get(10).getFoodSweet() %>g</td>
+						</tr>
+						</div>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+				
+			</div>	
+		<!-- #main -->
+	</div>
+	<!-- #primary -->
+		<!-- #content -->
+	<!-- .container -->
+<!-- 	<footer id="colophon" class="site-footer"> -->
+<!-- 	<div class="container"> -->
+<!-- 		<div class="site-info"> -->
+<!-- 			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">밑에</h1> -->
+<!-- 			밑에<i class="fa fa-love"></i> -->
+<!-- 		</div> -->
+<!-- 	</div>	 -->
+<!-- 	</footer> -->
+<!-- 	<a href="#top" class="smoothup" title="Back to top"><span class="genericon genericon-collapse"></span></a> -->
+</body>
+<!-- #page -->
+<script src='<%=request.getContextPath() %>/HW_video/js/plugins.js'></script>
+<script src='<%=request.getContextPath() %>/HW_video/js/scripts.js'></script>
+<script src='<%=request.getContextPath() %>/HW_video/js/masonry.pkgd.min.js'></script>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</html>

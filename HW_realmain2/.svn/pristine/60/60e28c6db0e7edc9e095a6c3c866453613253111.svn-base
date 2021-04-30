@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="cart">
+	<insert id="insertCart" parameterClass="kr.or.ddit.cart.vo.CartVO">
+		INSERT INTO BOARD (
+				CART_NUM
+				,MEM_ID
+				,CART_QTY
+				,CART_ORDER
+				,PROD_NUM
+				,PROD_NAME
+				,PROD_PRICE
+				,PROD_MEMBER_PRICE
+				,PROD_IMG_PATH
+		) VALUES (
+			CART_SEQ.NEXTVAL
+			,#memId#
+			,1
+			,0
+			,#prodNum#
+			,#prodName#
+			,#prodPrice#
+			,#prodMemberPrice#
+			,#prodImgPath#
+			)
+	</insert>
+	
+	
+	<resultMap class="kr.or.ddit.board.vo.BoardVO" id="boardMap">
+		
+			<result property="boardNum" column="BOARD_NUM"/>
+			<result property="memId" column="MEM_ID"/>
+			<result property="boardTitle" column="BOARD_TITLE"/>
+			<result property="boardContent" column="BOARD_CONTENT"/>
+			<result property="boardDate" column="BOARD_DATE"/>
+			<result property="boardReple" column="BOARD_REPLE"/>
+			<result property="boardCount" column="BOARD_COUNT"/>
+			<result property="boardPath" column="BOARD_PATH"/>
+		</resultMap>
+	
+	
+</sqlMap>

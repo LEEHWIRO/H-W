@@ -1,0 +1,12 @@
+package kr.or.ddit.mission.service;
+
+import kr.or.ddit.mission.vo.missionVO;
+
+public interface IMissionService {
+
+	public int insertMission(missionVO mv);
+	
+	
+	
+	
+}

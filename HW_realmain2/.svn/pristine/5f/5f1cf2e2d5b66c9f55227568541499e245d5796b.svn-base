@@ -1,0 +1,14 @@
+package kr.or.ddit.exerciseNotice.service;
+
+import kr.or.ddit.exerciseNotice.vo.ExerciseNoticeVO;
+
+public interface IExerciseNoticeService {
+
+	
+	public int insertExerciseNotice(ExerciseNoticeVO ev);
+	
+	
+	
+	
+	
+}

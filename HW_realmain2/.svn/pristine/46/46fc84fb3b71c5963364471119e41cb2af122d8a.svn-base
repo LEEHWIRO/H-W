@@ -1,0 +1,45 @@
+package kr.or.ddit.cart.dao;
+
+import java.sql.SQLException;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import kr.or.ddit.board.dao.BoardDaoImpl;
+import kr.or.ddit.cart.vo.CartVO;
+
+public class CartDaoImpl implements ICartDao{
+
+	
+	private static ICartDao cartDao;
+	
+	
+	
+	
+	private CartDaoImpl() {
+		
+	}
+	
+	public static ICartDao getInstance() {
+		if(cartDao == null) {
+			cartDao = new CartDaoImpl();
+		}
+		return cartDao;
+		
+	}
+	
+	
+	
+	@Override
+	public int insertCart(SqlMapClient smc, CartVO cartVo) throws SQLException {
+		int cnt = 0;
+		System.out.println(cartVo);
+		Object obj=smc.insert("cart.insertCart", cartVo);
+		
+		if(obj == null) {
+			cnt = 1;
+		}
+		
+		return cnt;
+	}
+
+}

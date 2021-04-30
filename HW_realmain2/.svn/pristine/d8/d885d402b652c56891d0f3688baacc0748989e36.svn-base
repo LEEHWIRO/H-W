@@ -1,0 +1,28 @@
+package kr.or.ddit.whisp.dao;
+
+
+import java.sql.SQLException;
+import java.util.List;
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+import kr.or.ddit.base.dao.BaseDao;
+import kr.or.ddit.member.vo.MemberVO;
+import kr.or.ddit.whisp.vo.WhispVO;
+public class WhispDao extends BaseDao{
+	private SqlMapClient smc;
+	
+	public WhispDao() {
+		smc = super.getSqlMapClient();
+	}
+	
+	public void createWhisp(WhispVO whispVo) throws SQLException {
+		smc.insert("member.createWhisp", whispVo);
+	}
+	
+	public List<WhispVO> retrieveWhispList(WhispVO whispVo) throws SQLException {
+		return smc.queryForList("member.retrieveWhispList", whispVo);
+	}
+}
+
+	

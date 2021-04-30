@@ -1,0 +1,13 @@
+package kr.or.ddit.inrefle.service;
+
+import kr.or.ddit.inrefle.vo.InRefleVO;
+
+public interface IInRefleService {
+
+	
+	public InRefleVO getInRefle(String prodNum);
+	
+	
+	
+	
+}

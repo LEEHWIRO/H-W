@@ -1,0 +1,123 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+    <title>장바구니</title>
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/HW_prod/css/shoppingcart-web-new.css" type="text/css">
+
+<body> 
+<div id="wrap">
+    <header>
+    	여기는 머리입니다.
+	</header>
+  
+    <section id="contents-cart" class="contents-cart async-content" style="visibility: visible;">
+       
+    
+   <table class="cartTable">
+            <colgroup><col width="40"><col width="20"><col width="*"><col width="100"><col width="100"></colgroup>
+            <thead>
+          	  	<tr class="head">
+                	<th scope="col"><label><span>&nbsp;&nbsp;</span></label></th>
+                	<th scope="colgroup" id="th-product-box" colspan="2">상품정보</th>
+                	<th scope="col" id="th-unit-total-price">상품금액</th>
+                	<th scope="col" id="th-delivery-fee">배송비</th>
+           		 </tr>
+            </thead>
+ 
+  			<tbody id="cartTable-sku">
+    
+        		<tr>
+        		
+                    <td>
+                          <a href="">
+                              <img src="./쿠팡! _ 장바구니_files/68713290-314e-41b4-9f69-6e1f4d710efc.jpg" width="120" height="120"  alt="상품이미지" >
+                       	          여기는 사진을 넣어야 합니다
+                          </a>
+                    </td>
+                    <td>
+                    </td>
+                    <td class="delivery-fee">
+                            <a href="https://www.coupang.com/vp/products/260560464?vendorItemId=5073922211">여기는 제목</a>
+                    </td>
+                    <td class="delivery-fee">
+						<div class="unit-total-sale-price">여기는 금액</div>
+                    </td>
+                    
+	               	<td class="delivery-fee" rowspan="1" headers="th-delivery-fee">
+                            <span class="delivery-fee__free">무료</span>
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>
+                          <a href="">
+                              <img src="./쿠팡! _ 장바구니_files/68713290-314e-41b4-9f69-6e1f4d710efc.jpg" width="120" height="120"  alt="상품이미지" >
+                       	          여기는 사진을 넣어야 합니다
+                          </a>
+                    </td>
+                    <td>
+                    </td>
+                    <td class="delivery-fee">
+                            <a href="https://www.coupang.com/vp/products/260560464?vendorItemId=5073922211">여기는 제목</a>
+                    </td>
+                    <td class="delivery-fee">
+						<div class="unit-total-sale-price">여기는 금액</div>
+                    </td>
+                    
+	               	<td class="delivery-fee" rowspan="1" headers="th-delivery-fee">
+                            <span class="delivery-fee__free">무료</span>
+                    </td>
+                    
+                </tr>
+	        
+        
+        <tr class="bundle-price-total">
+            <td colspan="5"></td>
+        </tr>
+    
+    </tbody>
+            
+</table>
+        
+
+            <br>
+            <div class="cart-total-price" data-total-price="24900" data-discount-price="0">
+                <div class="cart-total-price__inner">
+                    <div class="price-area">
+                        <h2 class="sr-only" id="cart-total-price">
+                      	      장바구니 총 주문금액 정보
+                        </h2>
+
+                        총 상품가격
+                        <em class="final-product-price">
+                            	여기는 총 함계 금액
+                        </em>원
+                        <span class="final-sale-area">
+                        
+                        </span>
+
+                        <span class="symbol-plus1"><span class="sr-only">더하기</span></span>
+                        총 배송비
+                        <em class="final-delivery-charge">0</em>원
+
+                        <span class="symbol-equal1"><span class="sr-only">결과는</span></span>
+                        총 주문금액
+                        <em class="final-order-price" data-final-order-price="24900">
+                            여기는 총 금액<span>원</span>
+                        </em>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="order-buttons">
+                <a href="#" class="goShopping logging" >쇼핑하기</a>
+                <a href="#" class="goPayment" id="btnPay">구매하기</a>
+            </div>
+        
+		</section>
+	</div>
+</body>
+
+</html>
